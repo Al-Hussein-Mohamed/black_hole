@@ -1,3 +1,4 @@
+import 'package:black_hole/core/configuration/config.dart';
 import 'package:black_hole/models/hole_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -95,10 +96,10 @@ class GameCubit extends Cubit<GameState> {
 
   void _endGame(int blackHole) async {
     for (var holeId in HoleModel.adj[blackHole]) {
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(Config.calcResultDuration);
       calcHole(holeId);
     }
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 700));
     emit(
       GameState(
         status: Status.showResult,

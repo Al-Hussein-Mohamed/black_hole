@@ -7,6 +7,7 @@ import 'models/hole_model.dart';
 
 void main() {
   HoleModel.init();
+  // runApp(DevicePreview(enabled: false, builder: (_) => const BlackHole()));
   runApp(const BlackHole());
 }
 
